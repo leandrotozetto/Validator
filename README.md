@@ -1,7 +1,7 @@
 # Validator
-> It's an old library that I wrote to facilitate validations of entities.
+> It's an old library that I wrote to facilitate validations of entities and arguments.
 
-## Usage example
+## Usage example (Entity Validation)
 
     var validator = Validator<Entity>.New();
     var entity = Entity.New();
@@ -13,4 +13,16 @@
     if(result.IsValid)
     {
       //code
+    }
+
+## Usage example (Argument Validation)
+    /// <summary>
+    /// Changes the value.
+    /// </summary>
+    /// <param name="name">New value.</param>
+    public void ChangeName(string name)
+    {
+        Ensure.That(name, nameof(name)).IsNullOrWhiteSpace();
+
+        //code
     }
